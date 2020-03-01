@@ -1,0 +1,32 @@
+//------------------------------------------------
+//--- 010 Editor v10.0 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+
+struct loader_args {
+    QWORD magic;
+    QWORD kernel_addr;
+    QWORD kaslr;
+    DWORD boot_flag;
+    WORD model;
+    char arg[0x20];
+};
+
+struct rdsk{
+    QWORD magic;
+    uint32 length;
+    char data[length];
+};
+
+struct {
+    rdsk ramdisk;
+    loader_args bootconfig;
+} loader_data;
